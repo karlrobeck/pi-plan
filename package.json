@@ -1,9 +1,24 @@
 {
   "name": "pi-plan",
+  "version": "0.1.0",
+  "description": "Pi extension for structured plan management — plan mode, plan CRUD tools, and session-tagged plan storage",
   "module": "index.ts",
   "type": "module",
-  "private": true,
   "keywords": ["pi-package"],
+  "author": "Karl Roebeck Alferez",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlrobeck/pi-plan.git"
+  },
+  "bugs": {
+    "url": "https://github.com/karlrobeck/pi-plan/issues"
+  },
+  "homepage": "https://github.com/karlrobeck/pi-plan#readme",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org/"
+  },
   "pi": {
     "extensions": ["./extensions/pi-plan/index.ts"]
   },
