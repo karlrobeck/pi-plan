@@ -144,18 +144,21 @@ export function disablePlanMode(
 
 /**
  * Check if plan mode is enabled by examining persisted session entries.
+ * Only the most recent entry matters (the last one wins).
  */
 export function isPlanModeEnabled(ctx: ExtensionContext): boolean {
-  for (const entry of ctx.sessionManager.getEntries()) {
+  const entries = ctx.sessionManager.getEntries();
+  let enabled = false;
+  for (const entry of entries) {
     if (
       entry.type === "custom" &&
       entry.customType === PLAN_MODE_ENTRY_TYPE
     ) {
       const data = entry.data as PlanModeState | undefined;
-      if (data?.enabled === true) return true;
+      enabled = data?.enabled === true;
     }
   }
-  return false;
+  return enabled;
 }
 
 /**
